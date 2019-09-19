@@ -16,7 +16,7 @@
         <TargetCommonOption>
           <Device>STM32L475VETx</Device>
           <Vendor>STMicroelectronics</Vendor>
-          <PackID>Keil.STM32L4xx_DFP.2.0.0</PackID>
+          <PackID>Keil.STM32L4xx_DFP.2.2.0</PackID>
           <PackURL>http://www.keil.com/pack</PackURL>
           <Cpu>IRAM(0x20000000,0x00018000) IRAM2(0x10000000,0x00008000) IROM(0x08000000,0x00080000) CPUTYPE("Cortex-M4") FPU2 CLOCK(12000000) ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
@@ -184,6 +184,7 @@
             <hadXRAM>0</hadXRAM>
             <uocXRam>0</uocXRam>
             <RvdsVP>2</RvdsVP>
+            <RvdsMve>0</RvdsMve>
             <hadIRAM2>1</hadIRAM2>
             <hadIROM2>0</hadIROM2>
             <StupSel>8</StupSel>
@@ -337,7 +338,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER, STM32L475xx</Define>
               <Undefine></Undefine>
-              <IncludePath>.;..\..\..\include;.;applications;board;board\CubeMX_Config\Inc;board\ports;..\libraries\HAL_Drivers;..\libraries\HAL_Drivers\config;..\..\..\libcpu\arm\common;..\..\..\libcpu\arm\cortex-m4;..\..\..\components\drivers\include;..\..\..\components\drivers\include;..\..\..\components\drivers\include;..\..\..\components\finsh;..\libraries\STM32L4xx_HAL\STM32L4xx_HAL_Driver\Inc;..\libraries\STM32L4xx_HAL\CMSIS\Device\ST\STM32L4xx\Include;..\libraries\STM32L4xx_HAL\CMSIS\Include</IncludePath>
+              <IncludePath>.;..\..\..\include;.;applications;board;board\CubeMX_Config\Inc;board\ports;..\libraries\HAL_Drivers;..\libraries\HAL_Drivers\config;..\..\..\libcpu\arm\common;..\..\..\libcpu\arm\cortex-m4;..\..\..\components\drivers\include;..\..\..\components\drivers\include;..\..\..\components\drivers\include;..\..\..\components\finsh;..\..\..\components\libc\compilers\common;..\libraries\STM32L4xx_HAL\STM32L4xx_HAL_Driver\Inc;..\libraries\STM32L4xx_HAL\CMSIS\Device\ST\STM32L4xx\Include;..\libraries\STM32L4xx_HAL\CMSIS\Include</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -462,9 +463,19 @@
           <GroupName>Applications</GroupName>
           <Files>
             <File>
+              <FileName>lcd_sample.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>applications\lcd_sample.c</FilePath>
+            </File>
+            <File>
               <FileName>main.c</FileName>
               <FileType>1</FileType>
               <FilePath>applications\main.c</FilePath>
+            </File>
+            <File>
+              <FileName>nrf24l01_init.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>applications\nrf24l01_init.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -619,6 +630,16 @@
           </Files>
         </Group>
         <Group>
+          <GroupName>libc</GroupName>
+          <Files>
+            <File>
+              <FileName>time.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\components\libc\compilers\common\time.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
           <GroupName>STM32_HAL</GroupName>
           <Files>
             <File>
@@ -700,11 +721,6 @@
               <FileName>stm32l4xx_hal_rng.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\libraries\STM32L4xx_HAL\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_rng.c</FilePath>
-            </File>
-            <File>
-              <FileName>stm32l4xx_hal_sram.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\libraries\STM32L4xx_HAL\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_sram.c</FilePath>
             </File>
             <File>
               <FileName>stm32l4xx_hal_gpio.c</FileName>

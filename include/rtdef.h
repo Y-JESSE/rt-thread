@@ -30,6 +30,7 @@
  *                             add struct rt_cpu
  *                             add smp relevant macros
  * 2019-01-27     Bernard      change version number to v4.0.1
+ * 2019-05-17     Bernard      change version number to v4.0.2
  */
 
 #ifndef __RT_DEF_H__
@@ -51,7 +52,7 @@ extern "C" {
 /* RT-Thread version information */
 #define RT_VERSION                      4L              /**< major version number */
 #define RT_SUBVERSION                   0L              /**< minor version number */
-#define RT_REVISION                     1L              /**< revise version number */
+#define RT_REVISION                     2L              /**< revise version number */
 
 /* RT-Thread version */
 #define RTTHREAD_VERSION                ((RT_VERSION * 10000) + \
@@ -814,7 +815,6 @@ struct rt_mempool
     rt_size_t        block_free_count;                  /**< numbers of free memory block */
 
     rt_list_t        suspend_thread;                    /**< threads pended on this resource */
-    rt_size_t        suspend_thread_count;              /**< numbers of thread pended on this resource */
 };
 typedef struct rt_mempool *rt_mp_t;
 #endif
@@ -853,6 +853,7 @@ enum rt_device_class_type
     RT_Device_Class_Timer,                              /**< Timer device */
     RT_Device_Class_Miscellaneous,                      /**< Miscellaneous device */
     RT_Device_Class_Sensor,                             /**< Sensor device */
+    RT_Device_Class_Touch,                              /**< Touch device */
     RT_Device_Class_Unknown                             /**< unknown device */
 };
 

@@ -3,6 +3,8 @@ menu "Hardware Drivers Config"
 config SOC_STM32F767IG
     bool
     select SOC_SERIES_STM32F7
+    select RT_USING_COMPONENTS_INIT
+    select RT_USING_USER_MAIN
     default y
 
 menu "Onboard Peripheral Drivers"
@@ -244,7 +246,9 @@ menu "On-chip Peripheral Drivers"
         select RT_USING_SDIO
         select RT_USING_DFS
         default n
-
+	
+ source "../libraries/HAL_Drivers/Kconfig"
+    
 endmenu
 
 menu "Board extended module Drivers"
